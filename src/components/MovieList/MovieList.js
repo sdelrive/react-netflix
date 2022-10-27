@@ -4,6 +4,10 @@ import { getPopularMovies } from "../../utils/getMovies";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieList.scss";
 
+//font awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
 //getMovies
 
 export default function MovieList({ label }) {
@@ -17,13 +21,25 @@ export default function MovieList({ label }) {
     console.log(popMovies);
   }, []);
 
+  const handleScrollRight = () => {};
   return (
     <div>
-      <h2>{label}</h2>
-      <div className="movies-container">
+      <h3>{label}</h3>
+      <div className="movies-container onClick">
         {popMovies.map((movie) => (
-          <MovieCard img={movie.poster_path} />
+          <MovieCard
+            className="item"
+            title={movie.title}
+            img={movie.poster_path}
+          />
         ))}
+      </div>
+      <div className="scroll">
+        <FontAwesomeIcon
+          onClick={handleScrollRight}
+          className="scroll-right"
+          icon={faChevronRight}
+        />
       </div>
     </div>
   );

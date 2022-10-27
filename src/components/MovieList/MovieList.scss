@@ -2,7 +2,63 @@
 .movies-container {
   display: flex;
   gap: 10px;
+  width: calc(100vw - 50px);
+  overflow-x: auto;
+  overflow: hidden;
 }
-h2 {
+h3 {
+  font-weight: 400;
   color: $white-bone;
+  margin-bottom: 15px;
+}
+
+.scroll {
+  &-right {
+    cursor: pointer;
+    position: relative;
+    bottom: 125px;
+    left: 1200px;
+    z-index: 2000;
+    width: 40px;
+    height: 30px;
+    color: $white-bone;
+    opacity: 0.3;
+    transition: $transition-a;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+// aber
+.movie-card {
+  cursor: pointer;
+  transition: $transition-a;
+}
+.movies-container:hover {
+  height: 400px;
+  margin-top: -90px;
+
+  margin-bottom: -82px;
+  align-items: center;
+  .movie-card {
+    transform: translateX(-25%);
+  }
+}
+
+.movie-card:hover ~ .movie-card {
+  transform: translateX(25%);
+}
+
+.movie-card:hover {
+  transform: scale(1.5) !important;
+  z-index: 1000;
+  position: relative;
+  // top: -150px;
+  height: 250px;
+  left: var(--positionX);
+  img {
+    // height: 100%;
+  }
 }

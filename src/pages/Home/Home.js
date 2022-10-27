@@ -6,9 +6,8 @@ export default function Home() {
   return (
     <>
       <Layout>
-        <h1>Home</h1>
-        <MovieList label="Tendencia" />
-        <MovieList label="Mias" />
+        <MovieList label="Mi Lista" />
+        <MovieList label="Tendencias" />
         <MovieList label="Mias" />
       </Layout>
     </>
