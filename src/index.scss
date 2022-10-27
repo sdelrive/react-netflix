@@ -1,3 +1,4 @@
+@import "./utils//variables";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,4 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $background-grey;
 }
+
+$main-red: #db0000;

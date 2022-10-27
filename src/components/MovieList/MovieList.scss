@@ -1,0 +1,8 @@
+@import "../../utils/variables.scss";
+.movies-container {
+  display: flex;
+  gap: 10px;
+}
+h2 {
+  color: $white-bone;
+}
