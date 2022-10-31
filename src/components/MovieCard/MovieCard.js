@@ -1,16 +1,22 @@
 import React from "react";
 import { imgURL } from "../../utils/constants";
 
-import "./MovieCard.scss";
+import moment from "moment";
 
-export default function MovieCard({ img, title }) {
+import "./MovieCard.scss";
+import { Link } from "react-router-dom";
+
+export default function MovieCard({ img, title, date, id }) {
   const src = imgURL + img;
   return (
-    <div className="movie-card className">
-      <img src={src} />
-      <div>
-        <h2>{title}</h2>
+    <Link to={`movies/${id}`}>
+      <div className="movie-card className">
+        <img src={src} />
+        <div>
+          <h2>{title}</h2>
+          <p>{moment(date).format("yyyy")}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

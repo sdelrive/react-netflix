@@ -20,7 +20,7 @@ export default function Header() {
         <nav className="nav-desk-nav">
           <ul>
             <li>
-              <Link>Inicio</Link>
+              <Link to="/">Inicio</Link>
             </li>
             <li>
               <Link>Series</Link>
