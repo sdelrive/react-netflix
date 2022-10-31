@@ -1,7 +1,7 @@
 import { basicURL, KEY } from "./constants";
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (page = 1) => {
   const res = fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=es-ES&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${KEY}&language=es-ES&page=${page}`
   );
   const data = await (await res).json();
 
@@ -19,6 +19,14 @@ export const getTendenciesMovies = async () => {
 
 export const getMovieById = async (id) => {
   const res = fetch(`${basicURL}/movie/${id}?api_key=${KEY}&language=es-ES`);
+  const data = await (await res).json();
+  return data;
+};
+// https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
+export const getRecommendedMovies = async (id, page = 1) => {
+  const res = fetch(
+    `${basicURL}/movie/${id}/recommendations?api_key=${KEY}&language=es-ES&page=${page}`
+  );
   const data = await (await res).json();
   return data;
 };

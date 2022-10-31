@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 export default function MovieCard({ img, title, date, id }) {
   const src = imgURL + img;
   return (
-    <Link to={`movies/${id}`}>
+    <Link to={`/movies/${id}`}>
       <div className="movie-card className">
         <img src={src} />
         <div>

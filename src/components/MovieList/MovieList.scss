@@ -3,9 +3,11 @@
   display: flex;
   gap: 10px;
   width: calc(100vw - 50px);
-  overflow-x: auto;
-  overflow: hidden;
+  overflow-x: scroll;
+  // overflow: hidden;
+  // display: none;
 }
+
 h3 {
   font-weight: 400;
   color: $white-bone;

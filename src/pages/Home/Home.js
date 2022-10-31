@@ -8,7 +8,7 @@ export default function Home() {
       <Layout>
         <MovieList label="Mi Lista" moviesType="popular" />
         <MovieList label="Tendencias" moviesType="tendencies" />
-        <MovieList label="Mias" />
+        <MovieList label="Mias" moviesType="tendencies" />
       </Layout>
     </>
   );
