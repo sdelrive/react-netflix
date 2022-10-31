@@ -3,6 +3,7 @@ a {
   text-decoration: none;
 }
 .movie-card {
+  max-width: 200px;
   &:hover {
     box-shadow: 3px 3px 9px 10px #00000040;
   }
