@@ -3,10 +3,10 @@ import "./Layout.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-export default function Layout({ children }) {
+export default function Layout({ children, results, setResults }) {
   return (
     <div className="layout">
-      <Header />
+      <Header results={results} setResults={setResults} />
       {children}
       <Footer />
     </div>

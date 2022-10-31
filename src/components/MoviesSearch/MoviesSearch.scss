@@ -1,9 +1,14 @@
 @import "../../utils/variables.scss";
-.movies-container {
+.movies-search-container {
+  margin-top: 100px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: calc(100vw - 50px);
-  overflow-x: scroll;
+
+  h1 {
+    color: white;
+  }
   // overflow: hidden;
   // display: none;
 }
@@ -12,25 +17,6 @@ h3 {
   font-weight: 400;
   color: $white-bone;
   margin-bottom: 15px;
-}
-
-.scroll {
-  &-right {
-    cursor: pointer;
-    position: relative;
-    bottom: 125px;
-    left: 1200px;
-    z-index: 2000;
-    width: 40px;
-    height: 30px;
-    color: $white-bone;
-    opacity: 0.3;
-    transition: $transition-a;
-
-    &:hover {
-      opacity: 0.9;
-    }
-  }
 }
 
 // aber

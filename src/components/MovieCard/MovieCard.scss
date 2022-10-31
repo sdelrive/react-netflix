@@ -1,4 +1,7 @@
 @import "../../utils/variables";
+a {
+  text-decoration: none;
+}
 .movie-card {
   &:hover {
     box-shadow: 3px 3px 9px 10px #00000040;

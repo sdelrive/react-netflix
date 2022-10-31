@@ -30,3 +30,10 @@ export const getRecommendedMovies = async (id, page = 1) => {
   const data = await (await res).json();
   return data;
 };
+export const getSearchByName = async (name = "Joker") => {
+  const res = fetch(
+    `${basicURL}/search/movie?api_key=${KEY}&language=es-ES&query=${name}`
+  );
+  const data = await (await res).json();
+  return data;
+};

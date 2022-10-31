@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,8 +13,35 @@ import {
 // assets
 import "./Header.scss";
 import logo from "../../assets/logo.png";
+//constants
+// search service
+import { getSearchByName } from "../../utils/getMovies";
 
-export default function Header() {
+export default function Header({ results, setResults }) {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  // const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await getSearchByName(search);
+      setResults(data.results);
+    })();
+  }, [search]);
+
+  const handleSearchIcon = () => {
+    searchOpen & !search
+      ? setSearchOpen(false)
+      : searchOpen & (search.length > 0)
+      ? console.log("search")
+      : setSearchOpen(true);
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const classSearch = searchOpen ? "opened" : "closed";
   return (
     <div className="header">
       <div className="nav">
@@ -38,8 +67,20 @@ export default function Header() {
         </nav>
       </div>
       <div className="user">
-        <div className="search-icon">
-          <FontAwesomeIcon className="fabIcon" icon={faMagnifyingGlass} />
+        <div className="search">
+          <input
+            type="text"
+            className={`search__input ${classSearch}`}
+            onChange={handleSearch}
+            onBlur={handleSearchIcon}
+            autoFocus
+          />
+
+          <FontAwesomeIcon
+            onClick={handleSearchIcon}
+            className="fabIcon search__icon"
+            icon={faMagnifyingGlass}
+          />
         </div>
         <div>
           <Link>Niños</Link>
