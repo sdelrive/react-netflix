@@ -6,16 +6,20 @@ import moment from "moment";
 import "./MovieCard.scss";
 import { Link } from "react-router-dom";
 
-export default function MovieCard({ img, title, date, id }) {
+export default function MovieCard({ img, title, date, id, sliderIndex }) {
   const src = imgURL + img;
+
+  const scrollStyles = {
+    transform: `translateX(calc(${sliderIndex} * -100%))`,
+  };
   return (
     <Link to={`/movies/${id}`}>
-      <div className="movie-card className">
+      <div style={scrollStyles} className="movie-card className">
         <img src={src} />
-        <div>
+        {/* <div>
           <h2>{title}</h2>
           <p>{moment(date).format("yyyy")}</p>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

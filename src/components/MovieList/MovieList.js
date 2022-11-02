@@ -10,7 +10,10 @@ import {
 import MovieCard from "../MovieCard/MovieCard";
 //font awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 //Estilos
 import "./MovieList.scss";
 
@@ -39,29 +42,39 @@ export default function MovieList({ label, moviesType, page }) {
       ? recMovies
       : popMovies;
 
-  const handleScrollRight = () => {};
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const handleScrollRight = () => {
+    setSliderIndex(sliderIndex + 5);
+  };
+  const handleScrollLeft = () => {
+    setSliderIndex(sliderIndex - 5);
+  };
+
   return (
-    <div>
+    <div className="row">
       <h3>{label}</h3>
-      <div className="movies-container onClick">
-        {lists.map((movie) => (
-          <MovieCard
-            page={page}
-            key={movie.id}
-            className="item"
-            title={movie.title}
-            img={movie.poster_path}
-            date={movie.release_date}
-            id={movie.id}
-          />
-        ))}
-      </div>
-      <div className="scroll">
-        <FontAwesomeIcon
-          onClick={handleScrollRight}
-          className="scroll-right"
-          icon={faChevronRight}
-        />
+      <div className="container">
+        <button className="scroll scroll-left" onClick={handleScrollLeft}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <div className="movies-container onClick">
+          {lists.map((movie) => (
+            <MovieCard
+              sliderIndex={sliderIndex}
+              page={page}
+              key={movie.id}
+              className="item"
+              title={movie.title}
+              img={movie.poster_path}
+              date={movie.release_date}
+              id={movie.id}
+            />
+          ))}
+        </div>
+        {/* Uso  un button en lugar de div, para mayor accesibilidad */}
+        <button className="scroll scroll-right" onClick={handleScrollRight}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
       </div>
     </div>
   );

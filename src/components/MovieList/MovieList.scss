@@ -1,63 +1,119 @@
 @import "../../utils/variables.scss";
-.movies-container {
-  display: flex;
-  gap: 10px;
-  width: calc(100vw - 50px);
-  overflow-x: scroll;
-  // overflow: hidden;
-  // display: none;
-}
 
-h3 {
-  font-weight: 400;
-  color: $white-bone;
-  margin-bottom: 15px;
-}
-
-.scroll {
-  &-right {
-    cursor: pointer;
-    position: relative;
-    bottom: 125px;
-    left: 1200px;
-    z-index: 2000;
-    width: 40px;
-    height: 30px;
+.row {
+  // margin-left: -50px;
+  h3 {
+    // margin-left: 80px;
+    font-weight: 400;
     color: $white-bone;
-    opacity: 0.3;
-    transition: $transition-a;
+    margin-bottom: 15px;
+  }
+}
 
-    &:hover {
-      opacity: 0.9;
+.container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  // margin-left: -30px;
+  height: 250px;
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+
+  &:hover {
+    .scroll {
+      background-color: black;
     }
   }
 }
+.movies-container {
+  position: relative;
+  // transform: translateX(calc(50%));
 
-// aber
-.movie-card {
-  cursor: pointer;
-  transition: $transition-a;
+  display: flex;
+  width: 100vw;
+  // width: calc(100vw - 50px);
+  overflow-x: hidden;
 }
-.movies-container:hover {
-  height: 400px;
-  margin-top: -90px;
 
-  margin-bottom: -82px;
+.scroll {
+  position: absolute;
+  display: flex;
   align-items: center;
-  .movie-card {
-    transform: translateX(-25%);
+  justify-content: center;
+
+  border: none;
+  border-radius: 15px;
+
+  color: white;
+  font-size: 1.5rem;
+  height: 99%;
+  background-color: transparent;
+
+  min-width: 15px;
+  width: 3%;
+  opacity: 0.2;
+  z-index: 10;
+  transition: $transition-a;
+  cursor: pointer;
+  &-left {
+    left: 4px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
   }
+  &-right {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    right: 3px;
+  }
+
+  &:hover {
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+  // &-right {
+  //   cursor: pointer;
+  //   position: relative;
+  //   bottom: 125px;
+  //   left: 1200px;
+  //   z-index: 200000;
+  //   width: 40px;
+  //   height: 30px;
+  //   color: $white-bone;
+  //   opacity: 0.3;
+  //   transition: $transition-a;
+
+  //   &:hover {
+  //     opacity: 0.9;
+  //   }
+  // }
 }
+
+// // aber
+// // .movie-card {
+// //   cursor: pointer;
+// //   transition: $transition-a;
+// // }
+// // .movies-container:hover {
+// //   height: 400px;
+// //   margin-top: -90px;
+
+// //   margin-bottom: -82px;
+// //   align-items: center;
+// //   .movie-card {
+// //     transform: translateX(-25%);
+// //   }
+// // }
 
 .movie-card:hover ~ .movie-card {
-  transform: translateX(25%);
+  transform: translateX(0%);
 }
 
-.movie-card:hover {
-  transform: scale(1.5) !important;
-  z-index: 1000;
-  position: relative;
-  // top: -150px;
-  height: 250px;
-  left: var(--positionX);
-}
+// // .movie-card:hover {
+// //   transform: scale(1.5) !important;
+// //   z-index: 1000;
+// //   position: relative;
+// //   // top: -150px;
+// //   height: 250px;
+// //   left: var(--positionX);
+// // }

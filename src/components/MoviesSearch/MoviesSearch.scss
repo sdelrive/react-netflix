@@ -13,37 +13,37 @@
   // display: none;
 }
 
-h3 {
-  font-weight: 400;
-  color: $white-bone;
-  margin-bottom: 15px;
-}
+// h3 {
+//   font-weight: 400;
+//   color: $white-bone;
+//   margin-bottom: 15px;
+// }
 
-// aber
-.movie-card {
-  cursor: pointer;
-  transition: $transition-a;
-}
-.movies-container:hover {
-  height: 400px;
-  margin-top: -90px;
+// // aber
+// .movie-card {
+//   cursor: pointer;
+//   transition: $transition-a;
+// }
+// .movies-container:hover {
+//   height: 400px;
+//   margin-top: -90px;
 
-  margin-bottom: -82px;
-  align-items: center;
-  .movie-card {
-    transform: translateX(-25%);
-  }
-}
+//   margin-bottom: -82px;
+//   align-items: center;
+//   .movie-card {
+//     transform: translateX(-25%);
+//   }
+// }
 
-.movie-card:hover ~ .movie-card {
-  transform: translateX(25%);
-}
+// .movie-card:hover ~ .movie-card {
+//   transform: translateX(25%);
+// }
 
-.movie-card:hover {
-  transform: scale(1.5) !important;
-  z-index: 1000;
-  position: relative;
-  // top: -150px;
-  height: 250px;
-  left: var(--positionX);
-}
+// .movie-card:hover {
+//   transform: scale(1.5) !important;
+//   z-index: 1000;
+//   position: relative;
+//   // top: -150px;
+//   height: 250px;
+//   left: var(--positionX);
+// }
