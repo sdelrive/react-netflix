@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,15 +17,17 @@ import logo from "../../assets/logo.png";
 // search service
 import { getSearchByName } from "../../utils/getMovies";
 
-export default function Header({ results, setResults }) {
+import { ResultsContext } from "../../App";
+export default function Header({ results, setResults, setContexto }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [search, setSearch] = useState("");
-  // const [results, setResults] = useState([]);
+
+  const [resultados, setResultados] = useContext(ResultsContext);
 
   useEffect(() => {
     (async () => {
       const data = await getSearchByName(search);
-      setResults(data.results);
+      setResultados(data.results);
     })();
   }, [search]);
 
