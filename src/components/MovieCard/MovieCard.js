@@ -13,7 +13,7 @@ export default function MovieCard({ img, title, date, id, sliderIndex }) {
     transform: `translateX(calc(${sliderIndex} * -100%))`,
   };
   return (
-    <Link to={`/movies/${id}`}>
+    <Link className="movie-card-container card-item" to={`/movies/${id}`}>
       <div style={scrollStyles} className="movie-card className">
         <img src={src} />
         {/* <div>

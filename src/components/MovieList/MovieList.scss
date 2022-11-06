@@ -17,7 +17,7 @@
   // margin-left: -30px;
   height: 250px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   position: relative;
 
   &:hover {
@@ -34,6 +34,10 @@
   width: 100vw;
   // width: calc(100vw - 50px);
   overflow-x: hidden;
+
+  &:hover .item {
+    transform: translateX(-25%);
+  }
 }
 
 .scroll {
@@ -71,49 +75,4 @@
     font-size: 2rem;
     opacity: 0.5;
   }
-  // &-right {
-  //   cursor: pointer;
-  //   position: relative;
-  //   bottom: 125px;
-  //   left: 1200px;
-  //   z-index: 200000;
-  //   width: 40px;
-  //   height: 30px;
-  //   color: $white-bone;
-  //   opacity: 0.3;
-  //   transition: $transition-a;
-
-  //   &:hover {
-  //     opacity: 0.9;
-  //   }
-  // }
 }
-
-// // aber
-// // .movie-card {
-// //   cursor: pointer;
-// //   transition: $transition-a;
-// // }
-// // .movies-container:hover {
-// //   height: 400px;
-// //   margin-top: -90px;
-
-// //   margin-bottom: -82px;
-// //   align-items: center;
-// //   .movie-card {
-// //     transform: translateX(-25%);
-// //   }
-// // }
-
-.movie-card:hover ~ .movie-card {
-  transform: translateX(0%);
-}
-
-// // .movie-card:hover {
-// //   transform: scale(1.5) !important;
-// //   z-index: 1000;
-// //   position: relative;
-// //   // top: -150px;
-// //   height: 250px;
-// //   left: var(--positionX);
-// // }

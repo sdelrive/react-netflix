@@ -1,13 +1,16 @@
 @import "../../utils/variables";
-a {
+.movie-card-container {
   text-decoration: none;
+  // &:hover {
+  //   height: 500px;
+  // }
 }
 .movie-card {
   // --slider-index: 1;
   // transform: translateX(calc(var(--slider-index) * -100%));
-  // &:hover {
-  //   box-shadow: 3px 3px 9px 10px #00000040;
-  // }
+  &:hover {
+    box-shadow: 3px 3px 9px 10px #00000040;
+  }
 
   margin: 0;
   height: 100%;
@@ -46,11 +49,13 @@ a {
   // }
 }
 
-// .movie-card:hover {
-//   // img {
-//   //   height: 80%;
-//   // }
-//   // div {
-//   //   display: block;
-//   // }
+// .item:hover ~ .item {
+//   transform: translateX(5%);
+// }
+
+// .card-item:hover {
+//   transform: scale(1.5) !important;
+//   z-index: 3000;
+//   position: relative;
+//   height: 300px;
 // }
