@@ -32,16 +32,34 @@ export default function Header({ results, setResults, setContexto }) {
   }, [search]);
 
   const handleSearchIcon = () => {
-    searchOpen & !search
-      ? setSearchOpen(false)
-      : searchOpen & (search.length > 0)
-      ? console.log("search")
-      : setSearchOpen(true);
+    searchOpen & !search ? setSearchOpen(false) : setSearchOpen(true);
+  };
+  const onBlurSearchIcon = () => {
+    if (searchOpen & !search) {
+      setSearchOpen(false);
+      console.log("asdad");
+    }
   };
 
+  // Aplicamos debounce para no llamar a la api mientras escribimos
   const handleSearch = (e) => {
-    setSearch(e.target.value);
+    updateDebounceSearch(e.target.value);
+    // setSearch(e.target.value)
   };
+  const updateDebounceSearch = debounceSearch((text) => {
+    setSearch(text);
+  });
+  function debounceSearch(cb) {
+    let timeout;
+
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        cb(...args);
+      }, 500);
+    };
+  }
+  ///////////////
 
   const classSearch = searchOpen ? "opened" : "closed";
   return (
@@ -74,7 +92,7 @@ export default function Header({ results, setResults, setContexto }) {
             type="text"
             className={`search__input ${classSearch}`}
             onChange={handleSearch}
-            onBlur={handleSearchIcon}
+            onBlur={onBlurSearchIcon}
             autoFocus
           />
 

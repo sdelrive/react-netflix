@@ -1,8 +1,17 @@
+import { authLogin, login } from "../../app/session/loginUser";
 import "./Form.scss";
+import { useNavigate } from "react-router";
 
 export default function Form({ label }) {
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
+    (async () => {
+      await login();
+      // await authLogin();
+      // navigate(`../../../../https://www.themoviedb.org/authenticate/6e0fef7bf90387faa2b19173734b4886a4b7c715
+      // `);
+    })();
   };
   return (
     <form className="form">
